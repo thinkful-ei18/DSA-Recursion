@@ -41,24 +41,24 @@ function triNum(n) {
 //  * * * // n -1
 // * * * * // n
 
-function stringSplitter(str, sep) {
-  if (str < 1) {
-    return [];
+function stringSplitter(str, separator) {
+  if (!str.includes(separator)) {
+    return [str];
   }
 
-  // sep === str[0]
-  // return [
-  //   str[0] === sep ? stringSplitter(str.slice(0)) : stringSplitter(str.slice(1))
-  // ];
-  if (str[0] === sep) {
-    return [stringSplitter(str.slice(1))];
-  }
-
-  if (str[0] !== sep) {
-    return stringSplitter(str.slice(1));
-  }
+  let index = str.indexOf(separator);
+  return [
+    str.substring(0, index) === '' ? null : str.substring(0, index),
+    ...stringSplitter(str.slice(index + 1), separator)
+  ];
 }
 
-console.log(stringSplitter('hello hello', ' '));
+// console.log(stringSplitter('ali  capi  christina', ' '));
 
-console.log('string'.slice(1));
+let binaryRepresentation = num => {
+  if (num >= 1) {
+    return binaryRepresentation(Math.floor(num / 2)) + num % 2;
+  }
+  return '';
+};
+// console.log(binaryRepresentation(5));
