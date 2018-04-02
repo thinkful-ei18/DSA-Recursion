@@ -114,4 +114,22 @@ function fibonacci(num) {
   return fibonacci(num - 1) + fibonacci(num - 2);
 }
 
-console.log(fibonacci(4));
+// console.log(fibonacci(4));
+
+var anaPerm = function(string) {
+  var results = {};
+
+  var combos = function(buildCombo, feed) {
+    if (!feed.length) {
+      results[buildCombo] = '';
+      return;
+    }
+    for (var i = 0; i < feed.length; i++) {
+      combos(buildCombo + feed.charAt(i), feed.slice(0, i) + feed.slice(i + 1));
+    }
+  };
+
+  combos('', string);
+  return Object.keys(results);
+};
+console.log(anaPerm('east').length);
