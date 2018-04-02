@@ -41,19 +41,56 @@ function triNum(n) {
 //  * * * // n -1
 // * * * * // n
 
-function stringSplitter(str, separator) {
-  if (!str.includes(separator)) {
-    return [str];
-  }
+// STACK OVERFLOW SOLUTION
+// function stringSplitter(str, separator) {
+//   if (!str.includes(separator)) {
+//     return [str];
+//   }
 
-  let index = str.indexOf(separator);
-  return [
-    str.substring(0, index) === '' ? null : str.substring(0, index),
-    ...stringSplitter(str.slice(index + 1), separator)
-  ];
-}
+//   let index = str.indexOf(separator);
+//   return [
+//     str.substring(0, index) === '' ? null : str.substring(0, index),
+//     ...stringSplitter(str.slice(index + 1), separator)
+//   ];
+// }
 
 // console.log(stringSplitter('ali  capi  christina', ' '));
+
+// function stringSplitter(str, sep, newArray) {
+//   if (str.length < 1) {
+//     return [];
+//   }
+
+//   if (str[0] === sep) {
+//     return [str.slice(1)];
+//   }
+
+//   // 'hello there', ' '
+//   if (str[0] !== sep) {
+//     return stringSplitter(str.slice(1), sep, newArray);
+//   }
+// }
+
+// console.log(stringSplitter('hello there', ' ', []));
+// // ['hello', 'there']
+
+function stringSplitter(str, sep, chars = [], words = []) {
+  if (str.length < 1) {
+    let word = chars.join('');
+    return words.concat(word);
+  }
+
+  if (str[0] === sep) {
+    let word = chars.join('');
+    return stringSplitter(str.slice(1), sep, [], words.concat(word));
+  }
+
+  if (str[0] !== sep) {
+    return stringSplitter(str.slice(1), sep, chars.concat(str[0]), words);
+  }
+}
+
+// console.log(stringSplitter('hello there capi yay', ' '));
 
 let binaryRepresentation = num => {
   if (num >= 1) {
