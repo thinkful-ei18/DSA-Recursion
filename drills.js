@@ -116,6 +116,25 @@ function fibonacci(num) {
 
 // console.log(fibonacci(4));
 
+<<<<<<< HEAD
+var anaPerm = function(string) {
+  var results = {};
+
+  var combos = function(buildCombo, feed) {
+    if (!feed.length) {
+      results[buildCombo] = '';
+      return;
+    }
+    for (var i = 0; i < feed.length; i++) {
+      combos(buildCombo + feed.charAt(i), feed.slice(0, i) + feed.slice(i + 1));
+    }
+  };
+
+  combos('', string);
+  return Object.keys(results);
+};
+console.log(anaPerm('east').length);
+=======
 
 
 
@@ -152,3 +171,4 @@ console.log(anagram('est'));
 
 // east, eats, esat, esta, etas, and etsa
 // console.log('east'.slice(4));
+>>>>>>> 09fae2e557995044df6341fd1e06996deaece0b1
