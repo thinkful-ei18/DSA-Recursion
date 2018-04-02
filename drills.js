@@ -114,4 +114,30 @@ function fibonacci(num) {
   return fibonacci(num - 1) + fibonacci(num - 2);
 }
 
-console.log(fibonacci(4));
+// console.log(fibonacci(4));
+
+
+
+
+
+
+
+function anagram(str, r = []) {
+  [str[0], str.slice(0, 0) + str.slice(1)], // [e, ast]
+  [str[1], str.slice(0, 1) + str.slice(2)], // [a, est] 
+  [str[2], str.slice(0, 2) + str.slice(3)], // [s, eat]
+  [str[3], str.slice(0, 3) + str.slice(4)], // [t, eas]
+
+  if (str.length * 6 === r.length) {
+    return r;
+  }
+
+  let first = str[0]; // e
+  let rest = str.slice(1); // ast
+  
+}
+
+console.log(anagram('east'));
+
+// east, eats, esat, esta, etas, and etsa
+// console.log('east'.slice(4));
