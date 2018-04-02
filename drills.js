@@ -7,16 +7,43 @@ function countingSheep(num) {
   console.log(num + '- Another sheep jumps over the fence');
   countingSheep(num - 1);
 }
-countingSheep(3);
+// countingSheep(3);
+
+
 
 function arrayDouble(arr) {
   if (arr.length < 1) {
     return [];
   }
-  console.log(arr);
-  arr[0] * 2;
-  return arrayDouble([arr[0], ...arr.slice(1)]);
-
-  [arr[0], ...filter(arr.slice(1), predicate)];
+  return [arr[0] * 2, ...arrayDouble(arr.slice(1))];
 }
-arrayDouble([1, 2, 3]);
+// console.log(arrayDouble([1,2,3]));
+
+
+function reverseString(str) {
+  if (str.length < 1) {
+    return '';
+  }
+
+  return str[str.length - 1] + reverseString(str.slice(0, -1));
+}
+
+// console.log(reverseString('hello'));
+
+
+
+
+function triNum(n) {
+
+  if (n === 0) {
+    return 0;
+  }
+  return n + triNum(n - 1);
+}
+
+console.log(triNum(5));
+
+//    * // 1
+//   * * // n-1
+//  * * * // n -1
+// * * * * // n
