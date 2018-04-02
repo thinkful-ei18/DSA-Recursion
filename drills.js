@@ -41,24 +41,41 @@ function triNum(n) {
 //  * * * // n -1
 // * * * * // n
 
-function stringSplitter(str, sep) {
-  if (str < 1) {
-    return [];
+// function stringSplitter(str, sep, newArray) {
+//   if (str.length < 1) {
+//     return [];
+//   }
+
+//   if (str[0] === sep) {
+//     return [str.slice(1)];
+//   }
+
+//   // 'hello there', ' '
+//   if (str[0] !== sep) {
+//     return stringSplitter(str.slice(1), sep, newArray);
+//   }
+// }
+
+// console.log(stringSplitter('hello there', ' ', []));
+// // ['hello', 'there']
+
+
+
+function stringSplitter(str, sep, chars = [], words = []) {
+
+  if (str.length < 1) {
+    let word = chars.join('');
+    return words.concat(word);
   }
 
-  // sep === str[0]
-  // return [
-  //   str[0] === sep ? stringSplitter(str.slice(0)) : stringSplitter(str.slice(1))
-  // ];
   if (str[0] === sep) {
-    return [stringSplitter(str.slice(1))];
+    let word = chars.join('');
+    return stringSplitter(str.slice(1), sep, [], words.concat(word));
   }
 
   if (str[0] !== sep) {
-    return stringSplitter(str.slice(1));
+    return stringSplitter(str.slice(1), sep, chars.concat(str[0]), words);
   }
 }
 
-console.log(stringSplitter('hello hello', ' '));
-
-console.log('string'.slice(1));
+console.log(stringSplitter('hello there capi yay', ' '));
