@@ -156,8 +156,27 @@ function anagram(str, r = []) {
   return r;
 }
 
-console.log(anagram('east'));
+// console.log(anagram('east'));
 
 // function findAnagrams(prefix, str) {
 
 // }
+
+const facebookHierarchy = [
+  { name: 'Zuckerberg', boss: null },
+  { name: 'Schroepfer', boss: 'Zuckerberg' },
+  { name: 'Zhao', boss: 'Schroepfer' },
+  { name: 'Bosworth', boss: 'Schroepfer' },
+  { name: 'Steve', boss: 'Bosworth' }
+];
+
+function traverse(facebookHierarchy, boss) {
+  let node = {};
+  facebookHierarchy
+    .filter(item => item.boss === boss)
+    .forEach(
+      item => (node[item.name] = traverse(facebookHierarchy, item.name))
+    );
+  return node;
+}
+console.log(traverse(facebookHierarchy, null));
