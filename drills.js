@@ -116,7 +116,6 @@ function fibonacci(num) {
 
 // console.log(fibonacci(4));
 
-<<<<<<< HEAD
 var anaPerm = function(string) {
   var results = {};
 
@@ -134,41 +133,31 @@ var anaPerm = function(string) {
   return Object.keys(results);
 };
 console.log(anaPerm('east').length);
-=======
-
-
-
-
-
 
 function anagram(str, r = []) {
   // [str[0], str.slice(0, 0) + str.slice(1)], // [e, ast]
-  // [str[1], str.slice(0, 1) + str.slice(2)], // [a, est] 
+  // [str[1], str.slice(0, 1) + str.slice(2)], // [a, est]
   // [str[2], str.slice(0, 2) + str.slice(3)], // [s, eat]
   // [str[3], str.slice(0, 3) + str.slice(4)], // [t, eas]
   console.log(str);
   if (str.length === 2) {
-    return [
-      str[0] + str[1],
-      str[1] + str[0]
-    ];
+    return [str[0] + str[1], str[1] + str[0]];
   }
   for (let i = 0; i < str.length; i++) {
     let remaining = str.slice(0, i) + str.slice(i + 1);
     console.log(remaining);
     let anagrams = anagram(remaining);
 
-    for (let j = 0; i < anagrams.length; j++) {
+    for (let j = 0; j < anagrams.length; j++) {
       r.push(str[i] + anagrams[j]);
     }
   }
   console.log(r);
   return r;
-
 }
 
-console.log(anagram('est'));
+console.log(anagram('east'));
 
-// east, eats, esat, esta, etas, and etsa
-// console.log('east'.slice(4));
->>>>>>> 09fae2e557995044df6341fd1e06996deaece0b1
+// function findAnagrams(prefix, str) {
+
+// }
