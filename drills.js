@@ -116,6 +116,7 @@ function fibonacci(num) {
 
 // console.log(fibonacci(4));
 
+<<<<<<< HEAD
 var anaPerm = function(string) {
   var results = {};
 
@@ -133,3 +134,30 @@ var anaPerm = function(string) {
   return Object.keys(results);
 };
 console.log(anaPerm('east').length);
+=======
+
+
+
+
+
+
+function anagram(str, r = []) {
+  [str[0], str.slice(0, 0) + str.slice(1)], // [e, ast]
+  [str[1], str.slice(0, 1) + str.slice(2)], // [a, est] 
+  [str[2], str.slice(0, 2) + str.slice(3)], // [s, eat]
+  [str[3], str.slice(0, 3) + str.slice(4)], // [t, eas]
+
+  if (str.length * 6 === r.length) {
+    return r;
+  }
+
+  let first = str[0]; // e
+  let rest = str.slice(1); // ast
+  
+}
+
+console.log(anagram('east'));
+
+// east, eats, esat, esta, etas, and etsa
+// console.log('east'.slice(4));
+>>>>>>> 09fae2e557995044df6341fd1e06996deaece0b1
