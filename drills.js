@@ -135,8 +135,9 @@ function anagram(str, r = []) {
     ];
   }
   for (let i = 0; i < str.length; i++) {
-    console.log(str);
-    let anagrams = anagram(str.slice(0, i) + str.slice(i + 1));
+    let remaining = str.slice(0, i) + str.slice(i + 1);
+    console.log(remaining);
+    let anagrams = anagram(remaining);
 
     for (let j = 0; i < anagrams.length; j++) {
       r.push(str[i] + anagrams[j]);
