@@ -9,8 +9,6 @@ function countingSheep(num) {
 }
 // countingSheep(3);
 
-
-
 function arrayDouble(arr) {
   if (arr.length < 1) {
     return [];
@@ -18,7 +16,6 @@ function arrayDouble(arr) {
   return [arr[0] * 2, ...arrayDouble(arr.slice(1))];
 }
 // console.log(arrayDouble([1,2,3]));
-
 
 function reverseString(str) {
   if (str.length < 1) {
@@ -30,20 +27,38 @@ function reverseString(str) {
 
 // console.log(reverseString('hello'));
 
-
-
-
 function triNum(n) {
-
   if (n === 0) {
     return 0;
   }
   return n + triNum(n - 1);
 }
 
-console.log(triNum(5));
+// console.log(triNum(5));
 
 //    * // 1
 //   * * // n-1
 //  * * * // n -1
 // * * * * // n
+
+function stringSplitter(str, sep) {
+  if (str < 1) {
+    return [];
+  }
+
+  // sep === str[0]
+  // return [
+  //   str[0] === sep ? stringSplitter(str.slice(0)) : stringSplitter(str.slice(1))
+  // ];
+  if (str[0] === sep) {
+    return [stringSplitter(str.slice(1))];
+  }
+
+  if (str[0] !== sep) {
+    return stringSplitter(str.slice(1));
+  }
+}
+
+console.log(stringSplitter('hello hello', ' '));
+
+console.log('string'.slice(1));
